@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  my-code-server:
+    image: my-code-server:v1
+    container_name: my-code-server
+    # user: "${UID}:${GID}" # 解决文件权限问题
+    environment:
+      - PASSWORD=123456789 # 修改你的强密码！
+    volumes:
+      - ./project:/home/coder/project # 代码工作区
+      - ./config:/home/coder/.config # 持久化配置和插件
+      - ./.claude:/home/coder/.claude
+      - ./.claude:/root/.claude
+      - C:/E/workspaces/:/home/coder/workspaces
+    ports:
+      - "8080:8080"
+    #   - "3000:3000"
+    restart: unless-stopped
+
+  # caddy:
+  #   image: caddy:2
+  #   container_name: caddy-proxy
+  #   ports:
+  #     - "8091:8091"   # 对外依然使用 8091，但现在是 HTTPS
+  #   volumes:
+  #     - C:/E/workspaces/coderserver/Caddyfile/Caddyfile:/etc/caddy/Caddyfile
+  #     - C:/E/workspaces/coderserver/Caddyfile/data:/data
+  #   restart: unless-stopped
