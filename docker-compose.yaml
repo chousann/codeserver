@@ -1,17 +1,19 @@
 version: "3.8"
 services:
   my-code-server:
-    image: my-code-server:v1
+    image: my-code-server:v2
     container_name: my-code-server
     # user: "${UID}:${GID}" # 解决文件权限问题
     environment:
       - PASSWORD=123456789 # 修改你的强密码！
+      - TZ=Asia/Shanghai
     volumes:
       - ./project:/home/coder/project # 代码工作区
       - ./config:/home/coder/.config # 持久化配置和插件
       - ./config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
       - ./.claude:/home/coder/.claude
       - ./.claude:/root/.claude
+      - ./workspaces:/opt/workspaces
       - C:/E/workspaces/:/home/coder/workspaces
     ports:
       - "8080:8080"

@@ -12,6 +12,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
 # ================ 2. 安装 Claude Code CLI（插件运行的基础） ================
 RUN npm install -g @anthropic-ai/claude-code
 
+# ================ 2.5 安装 cc-connect（AI Agent 消息平台桥接） ================
+RUN npm install -g cc-connect
+
 # ================ 3. 预装 Claude Code VS Code 插件 ================
 # code-server 默认使用 Open VSX Registry，需要切换到官方 VS Code Marketplace
 ENV EXTENSIONS_GALLERY='{"serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery", "itemUrl": "https://marketplace.visualstudio.com/items"}'

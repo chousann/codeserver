@@ -1,0 +1,22 @@
+language = "zh"
+
+[core]
+admin_from = ["zhang"]
+allow_from = ["xxx"]   
+
+[[projects]]
+name = "dingtalk"
+
+[projects.agent]
+type = "claudecode"
+
+[projects.agent.options]
+work_dir = "/opt/workspaces/cc-connect/workspaces/dingtalk"
+mode = "default"
+
+[[projects.platforms]]
+type = "dingtalk"
+
+[projects.platforms.options]
+client_id = "xxx"
+client_secret = "xxx"
