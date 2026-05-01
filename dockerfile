@@ -9,11 +9,14 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-# ================ 2. 安装 Claude Code CLI（插件运行的基础） ================
+# ================ 2.1 安装 Claude Code CLI（插件运行的基础） ================
 RUN npm install -g @anthropic-ai/claude-code
 
-# ================ 2.5 安装 cc-connect（AI Agent 消息平台桥接） ================
+# ================ 2.2 安装 cc-connect（AI Agent 消息平台桥接） ================
 RUN npm install -g cc-connect
+
+# ================ 2.3 安装 cc-weixin Agent 微信平台桥接） ================
+RUN npm install -g cc-weixin
 
 # ================ 3. 预装 Claude Code VS Code 插件 ================
 # code-server 默认使用 Open VSX Registry，需要切换到官方 VS Code Marketplace
