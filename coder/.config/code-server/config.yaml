@@ -1,5 +1,0 @@
-bind-addr: 0.0.0.0:8080
-auth: password
-password: b43263c26420fcd3147e7920
-cert: /home/coder/.config/code-server/localhost+5.pem
-cert-key: /home/coder/.config/code-server/localhost+5-key.pem
