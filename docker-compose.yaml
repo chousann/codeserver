@@ -9,10 +9,10 @@ services:
       - TZ=Asia/Shanghai
     volumes:
       - ./coder:/home/coder
-      - ./coder/config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
+      - ./coder/.config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
       - ./coder/.claude:/root/.claude
       - ./workspaces:/opt/workspaces
-      - C:/E/workspaces/:/home/coder/workspaces
+      - C:/E/workspaces/:/opt/e/workspaces
     ports:
       - "8080:8080"
     #   - "3000:3000"
