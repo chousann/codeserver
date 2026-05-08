@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   my-code-server:
-    image: my-code-server:v2
+    image: my-code-server:v3
     container_name: my-code-server
     # user: "${UID}:${GID}" # 解决文件权限问题
     environment:
