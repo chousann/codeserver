@@ -8,11 +8,9 @@ services:
       - PASSWORD=123456789 # 修改你的强密码！
       - TZ=Asia/Shanghai
     volumes:
-      - ./project:/home/coder/project # 代码工作区
-      - ./config:/home/coder/.config # 持久化配置和插件
-      - ./config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
-      - ./.claude:/home/coder/.claude
-      - ./.claude:/root/.claude
+      - ./coder:/home/coder
+      - ./coder/config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
+      - ./coder/.claude:/root/.claude
       - ./workspaces:/opt/workspaces
       - C:/E/workspaces/:/home/coder/workspaces
     ports:
