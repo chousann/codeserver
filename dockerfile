@@ -4,6 +4,11 @@ FROM codercom/code-server:latest
 # ================ 切换到 root，获取安装权限 ================
 USER root
 
+# ================ 1. 安装 Python 3 ================
+RUN apt-get update \
+    && apt-get install -y python3 python3-pip python3-venv \
+    && rm -rf /var/lib/apt/lists/*
+
 # ================ 1. 安装 Node.js 24（LTS 版本） ================
 RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt-get install -y nodejs \
