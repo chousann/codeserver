@@ -12,7 +12,7 @@ services:
       - ./coder/.config/code-server:/root/.config/code-server # root用户读取的配置（含TLS证书）
       - ./coder/.claude:/root/.claude
       - ./workspaces:/opt/workspaces
-      - ../workspaces/:/opt/e/workspaces
+      - ../:/opt/e/workspaces
     ports:
       - "8080:8080"
       - "3000:3000"
