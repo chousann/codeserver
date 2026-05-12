@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get install -y python3 python3-pip python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
-# ================ 1. 安装 Node.js 24（LTS 版本） ================
+# ================ 2. 安装 Node.js 24（LTS 版本） ================
 RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
@@ -39,3 +39,5 @@ ENTRYPOINT ["/opt/entrypoint.sh"]
 
 # ================ 恢复为普通用户，保障安全 ================
 USER 1000
+
+EXPOSE 8080 3000 3001
