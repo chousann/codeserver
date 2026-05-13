@@ -33,11 +33,14 @@ RUN mkdir -p /opt/code-server-extensions \
     && chown -R 1000:1000 /opt/code-server-extensions
 
 # ================ 4. 启动脚本：附加 --extensions-dir 参数 ================
-RUN echo '#!/bin/bash\nexec code-server --extensions-dir /opt/code-server-extensions "$@"' > /opt/entrypoint.sh \
-    && chmod +x /opt/entrypoint.sh
+COPY entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+# ENTRYPOINT ["/opt/entrypoint.sh"]
+# RUN echo '#!/bin/bash\nexec code-server --extensions-dir /opt/code-server-extensions "$@"' > /opt/entrypoint.sh \
+    # && chmod +x /opt/entrypoint.sh
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
 # ================ 恢复为普通用户，保障安全 ================
 USER 1000
 
-EXPOSE 8080 3000 3001
+EXPOSE 8080 3000 3001 3002 3003 3004 3005 4200
