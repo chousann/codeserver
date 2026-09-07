@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   my-code-server:
-    image: my-code-server:v4
+    image: my-code-server:v5
     container_name: my-code-server
     # user: "${UID}:${GID}" # 解决文件权限问题
     environment:
@@ -21,6 +21,11 @@ services:
       - "3003:3003"
       - "3003:3003"
       - "3004:3004"
+      - "3005:3005"
+      - "3006:3006"
+      - "3007:3007"
+      - "3008:3008"
+      - "3009:3009"
       - "4200:4200"
     restart: unless-stopped
 
